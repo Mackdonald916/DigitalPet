@@ -1,82 +1,163 @@
-# 🐶 Digital Pet - Python OOP Challenge
+# 🐾 Digital Pet (Python OOP Challenge)
 
-Welcome to the **Digital Pet** project! This Python mini-project is a fun way to practice Object-Oriented Programming (OOP) concepts such as classes, objects, attributes, and methods. In this challenge, you'll interact with your own virtual pet and teach it new tricks! 🎉
-
-## 🧠 Objective
-
-Create a virtual pet using Python's OOP features. The pet can eat, sleep, play, and even learn tricks!
+This project demonstrates a **digital pet** using Python's Object-Oriented Programming (OOP) concepts. You can interact with your pet—feed it, let it sleep, play with it, and even teach it tricks!
 
 ---
 
-## 📁 Project Structure
+## 🧠 How It Works
 
-digital-pet/ ├── pet.py # Pet class definition ├── main.py # Main script to interact with the pet └── README.md # Project documentation
-
-markdown
-Copy
-Edit
+The project consists of two main files:
+- `pet.py` – contains the `Pet` class that defines how the pet behaves.
+- `main.py` – a script where we create a pet object and interact with it.
 
 ---
 
-## 🔧 Features
+## 🐕‍🦺 `pet.py` Explained
 
-### `Pet` Class
+### ✅ Class Definition
+```python
+class Pet:
+This defines a blueprint for our pet. Every pet object created from this class will have the same structure.
 
-- **Attributes**
-  - `name`: Name of your pet.
-  - `hunger`: Hunger level (0 = full, 10 = very hungry).
-  - `energy`: Energy level (0 = tired, 10 = fully rested).
-  - `happiness`: Happiness level (0 = sad, 10 = very happy).
-  - `tricks`: A list to store learned tricks.
-
-- **Methods**
-  - `eat()`: Reduces hunger by 3 (not below 0), increases happiness by 1.
-  - `sleep()`: Increases energy by 5 (not above 10).
-  - `play()`: Reduces energy by 2, increases happiness by 2, and increases hunger by 1.
-  - `get_status()`: Displays current pet status.
-  - `train(trick)`: Teaches the pet a new trick and stores it.
-  - `show_tricks()`: Displays a list of all learned tricks.
-
----
-
-## 🚀 How to Run
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/yourusername/digital-pet.git
-   cd digital-pet
-Run the program:
-
-bash
+🧱 The Constructor: __init__
+python
 Copy
 Edit
-python main.py
-🖼️ Sample Output
-yaml
+def __init__(self, name):
+    self.name = name
+    self.hunger = 5
+    self.energy = 5
+    self.happiness = 5
+    self.tricks = []
+This special method runs automatically when we create a new pet. It sets:
+
+name: the pet's name
+
+hunger: starts at 5 (0 = full, 10 = very hungry)
+
+energy: starts at 5 (0 = tired, 10 = fully rested)
+
+happiness: starts at 5 (0 = sad, 10 = very happy)
+
+tricks: an empty list for storing learned tricks
+
+🍗 eat() Method
+python
 Copy
 Edit
-Buddy's Status:
-  Hunger: 5/10
-  Energy: 5/10
-  Happiness: 5/10
+def eat(self):
+    self.hunger = max(0, self.hunger - 3)
+    self.happiness = min(10, self.happiness + 1)
+Reduces hunger by 3, but not below 0.
 
-Buddy eats happily!
-Buddy takes a nap. 😴
-Buddy plays joyfully! 🐾
-Buddy has learned a new trick: roll over! 🎓
-Buddy has learned a new trick: sit! 🎓
-Buddy's Tricks: roll over, sit
-🎯 Bonus Ideas
-Want to level up the game?
+Increases happiness by 1, but not above 10.
 
-Add pet moods (e.g. bored, excited).
+😴 sleep() Method
+python
+Copy
+Edit
+def sleep(self):
+    self.energy = min(10, self.energy + 5)
+Increases energy by 5, but not more than 10.
 
-Save pet data to a file for persistence.
+🎮 play() Method
+python
+Copy
+Edit
+def play(self):
+    if self.energy >= 2:
+        self.energy -= 2
+        self.happiness = min(10, self.happiness + 2)
+        self.hunger = min(10, self.hunger + 1)
+Can only play if the pet has at least 2 energy.
 
-Add a GUI using Tkinter or Pygame!
+Decreases energy by 2.
 
-👨‍💻 Author
-This project was built as part of the Python OOP Challenge.
+Increases happiness by 2.
+
+Increases hunger by 1.
+
+📊 get_status() Method
+python
+Copy
+Edit
+def get_status(self):
+    print(f"{self.name}'s Status:")
+    print(f"  Hunger: {self.hunger}/10")
+    print(f"  Energy: {self.energy}/10")
+    print(f"  Happiness: {self.happiness}/10")
+Prints the current values of hunger, energy, and happiness.
+
+🎓 train(trick) Method
+python
+Copy
+Edit
+def train(self, trick):
+    self.tricks.append(trick)
+Adds a new trick (passed as a string) to the pet's tricks list.
+
+🧠 show_tricks() Method
+python
+Copy
+Edit
+def show_tricks(self):
+    print(", ".join(self.tricks))
+Prints all tricks the pet has learned. If none, it says so.
+
+📜 main.py Explained
+This is the script that runs the simulation.
+
+🐶 Create a Pet
+python
+Copy
+Edit
+my_pet = Pet("Buddy")
+Creates a new Pet object called Buddy.
+
+🕹️ Interact with the Pet
+python
+Copy
+Edit
+my_pet.get_status()
+my_pet.eat()
+my_pet.sleep()
+my_pet.play()
+Shows the pet’s initial status
+
+Feeds the pet
+
+Lets it rest
+
+Plays with it
+
+🎯 Teach Tricks
+python
+Copy
+Edit
+my_pet.train("roll over")
+my_pet.train("sit")
+Teaches the pet some tricks
+
+🪞 Show Tricks and Status Again
+python
+Copy
+Edit
+my_pet.show_tricks()
+my_pet.get_status()
+Shows all learned tricks
+
+Displays updated status after interactions
+
+
+
+🚀 Try It Yourself!
+Run the project and watch your pet come to life! Want to expand it?
+
+Add moods or health tracking
+
+Add time-based hunger or sleep decay
+
+Save/load pet state to/from a file
 
 Happy coding! 🐾✨
 
@@ -86,4 +167,4 @@ Edit
 
 ---
 
-Let me know if you want it customized with your GitHub username or repo link, or if you’d like a badge section or screenshot included!
+Let me know if you’d like this turned into a PDF or uploaded into your GitHub repo structure as well!
