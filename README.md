@@ -15,7 +15,7 @@ The project consists of two main files:
 ## 🐕‍🦺 `pet.py` Explained
 
 ### ✅ Class Definition
-```python
+
 class Pet:
 This defines a blueprint for our pet. Every pet object created from this class will have the same structure.
 
@@ -159,12 +159,4 @@ Add time-based hunger or sleep decay
 
 Save/load pet state to/from a file
 
-Happy coding! 🐾✨
 
-yaml
-Copy
-Edit
-
----
-
-Let me know if you’d like this turned into a PDF or uploaded into your GitHub repo structure as well!
