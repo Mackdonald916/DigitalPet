@@ -1,7 +1,4 @@
 
-markdown
-Copy
-Edit
 # 🐶 Digital Pet – Python OOP Challenge
 
 Welcome to the **Digital Pet** project! This is a fun and interactive way to learn the basics of Object-Oriented Programming (OOP) in Python. You’ll create your own virtual pet that can eat, sleep, play, and even learn tricks! This mini-project is perfect for beginners who want to build something engaging while practicing classes, methods, and object management in Python.
@@ -60,18 +57,13 @@ Your pet will have the following attributes:
    cd digital-pet
 Run the program
 
-bash
-Copy
-Edit
+
 python main.py
 Interact with your pet
 
 The pet will eat, sleep, play, learn tricks, and show its current status.
 
 💻 Sample Output
-yaml
-Copy
-Edit
 Buddy's Status:
   Hunger: 5/10
   Energy: 5/10
